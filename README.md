@@ -3,8 +3,7 @@
  redis-2.6.17.tar.gz
 
 
-
- ## quick start
+## quick start
 
  ```C
 
