@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <errno.h>
 #include "ae.h"
 #include "anet.h"
 
@@ -45,10 +46,16 @@ void readProc(struct aeEventLoop* eventLoop, int fd, void* clientdata, int mask)
 		printf("server close socket -- \n");
 		aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
 		close(fd);
-		return;
+    fd = 0;
 	}
-	
-	if (n_read == -1) {
+
+  if (n_read == -1) {
+    printf("socket read error \n");
+    aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
+    close(fd);
+    fd = 0; 
+  }
+	if (n_read <= 0) {
 		return ;
 	}
 
