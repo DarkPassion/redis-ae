@@ -49,13 +49,13 @@ void client_read_proc(struct aeEventLoop* eventLoop, int fd, void* clientdata, i
 	}
 
 	if (n_read == -1) {
-	if (errno == EAGAIN) {
+	  if (errno == EAGAIN) {
         	n_read = 0;
-	} else {
-		printf("read socket error == \n");
-		aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
-        	close(fd);
-        	fd = 0;
+	  } else {
+		    printf("read socket error == \n");
+		    aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
+        close(fd);
+        fd = 0;
     	}
   }
 
