@@ -1,4 +1,7 @@
 
+cd libae && cmake . && make
+
+cd ..
 
 
 gcc echo-server.c  -stdlib=libc++ -Llibae -lredis-ae -Ilibae -o echo-server.out
