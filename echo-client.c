@@ -76,6 +76,7 @@ int main()
 
 	printf("main --- \n");
 	aeMain(el);
+	aeDeleteEventLoop(el);
 
 
 	return 0;

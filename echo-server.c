@@ -94,6 +94,6 @@ int main()
 
 	aeMain(el);
 
-
+	aeDeleteEventLoop(el);
 	return 0;
 }
