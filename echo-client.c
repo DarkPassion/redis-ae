@@ -72,6 +72,7 @@ int main()
 	anetWrite(fd, writebuff, strlen(ptr));
 
 	anetNonBlock(myerr, fd);
+	anetEnableTcpNoDelay(myerr, fd);
 	aeCreateFileEvent(el, fd, AE_READABLE, readProc, el);
 
 	printf("main --- \n");
