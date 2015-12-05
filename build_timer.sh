@@ -1,7 +1,10 @@
 
-cd libae && cmake . && make
+#cd libae && cmake . && make
 
-gcc timer.c -Llibae -llredis-ae -Ilibae -o timer.out
+#cd ..
+
+gcc timer.c -Llibae -lredis-ae -Ilibae -o timer.out
+
 
 
 
