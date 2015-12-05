@@ -48,15 +48,15 @@ void client_read_proc(struct aeEventLoop* eventLoop, int fd, void* clientdata, i
 		return;
 	}
 
-  if (n_read == -1) {
-    if (errno == EAGAIN) {
-        n_read = 0;
-    } else {
-        printf("read socket error == \n");
-        aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
-        close(fd);
-        fd = 0;
-    }
+	if (n_read == -1) {
+	if (errno == EAGAIN) {
+        	n_read = 0;
+	} else {
+		printf("read socket error == \n");
+		aeDeleteFileEvent(eventLoop, fd, AE_READABLE);
+        	close(fd);
+        	fd = 0;
+    	}
   }
 
 	printf("n_read == %d  %s \n", n_read, read_buff);
