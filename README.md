@@ -16,6 +16,12 @@
 #include "ae.h"
 #include "anet.h"
 
+ void writeProc(struct aeEventLoop* eventLoop, int fd, void* clientdata, int mask)
+{
+	/* write process */
+
+}
+
  void acceptProc(struct aeEventLoop* eventLoop, int fd, void* clientdata, int mask)
 {
 
